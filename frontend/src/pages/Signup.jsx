@@ -76,7 +76,7 @@ function Signup() {
 
     try {
       const res = await axios.post(
-        "http://16.171.3.48:5000/api/auth/signup",
+        "https://protected-notes-app-1.onrender.com/api/auth/signup",
         formData
       );
 
@@ -85,7 +85,7 @@ function Signup() {
       window.location.href = "/";
 
     } catch (error) {
-      alert(error.response.data.message);
+      alert(error.response?.data?.message || "Signup failed");
     }
   };
 

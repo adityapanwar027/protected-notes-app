@@ -116,7 +116,7 @@ function Dashboard() {
   // GET NOTES
   const getNotes = async () => {
     const res = await axios.get(
-      "http://16.171.3.48:5000/api/notes",
+      "https://protected-notes-app-1.onrender.com/api/notes",
       {
         headers: {
           Authorization: `Bearer ${token}`,
@@ -140,7 +140,7 @@ function Dashboard() {
     e.preventDefault();
 
     await axios.post(
-      "http://16.171.3.48:5000/api/notes",
+      "https://protected-notes-app-1.onrender.com/api/notes",
       formData,
       {
         headers: {
@@ -162,7 +162,7 @@ function Dashboard() {
   // DELETE NOTE
   const deleteNote = async (id) => {
     await axios.delete(
-      `http://16.171.3.48:5000/api/notes/${id}`,
+      `https://protected-notes-app-1.onrender.com/api/notes/${id}`,
       {
         headers: {
           Authorization: `Bearer ${token}`,
