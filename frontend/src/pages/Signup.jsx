@@ -11,6 +11,7 @@ const styles = {
     background: "linear-gradient(135deg, #f7f3e8 0%, #e8f1f2 100%)",
     fontFamily: "Arial, sans-serif",
   },
+
   card: {
     width: "100%",
     maxWidth: "440px",
@@ -19,15 +20,18 @@ const styles = {
     borderRadius: "8px",
     boxShadow: "0 18px 45px rgba(15, 23, 42, 0.14)",
   },
+
   heading: {
     margin: "0 0 24px",
     color: "#102a43",
     fontSize: "32px",
     textAlign: "center",
   },
+
   form: {
     width: "100%",
   },
+
   input: {
     width: "100%",
     boxSizing: "border-box",
@@ -37,6 +41,7 @@ const styles = {
     fontSize: "16px",
     outlineColor: "#2f80ed",
   },
+
   button: {
     width: "100%",
     padding: "13px 16px",
@@ -71,11 +76,14 @@ function Signup() {
 
     try {
       const res = await axios.post(
-        "http://localhost:5000/api/auth/signup",
+        "http://16.171.3.48:5000/api/auth/signup",
         formData
       );
 
       alert(res.data.message);
+
+      window.location.href = "/";
+
     } catch (error) {
       alert(error.response.data.message);
     }
@@ -84,47 +92,50 @@ function Signup() {
   return (
     <div style={styles.page}>
       <div style={styles.card}>
-      <h1 style={styles.heading}>Signup Page</h1>
+        <h1 style={styles.heading}>Signup Page</h1>
 
-      <form onSubmit={handleSignup} style={styles.form}>
-        <input
-          type="text"
-          name="name"
-          placeholder="Enter Name"
-          onChange={handleChange}
-          style={styles.input}
-        />
+        <form onSubmit={handleSignup} style={styles.form}>
+          <input
+            type="text"
+            name="name"
+            placeholder="Enter Name"
+            onChange={handleChange}
+            style={styles.input}
+          />
 
-        <br />
-        <br />
+          <br />
+          <br />
 
-        <input
-          type="email"
-          name="email"
-          placeholder="Enter Email"
-          onChange={handleChange}
-          style={styles.input}
-        />
+          <input
+            type="email"
+            name="email"
+            placeholder="Enter Email"
+            onChange={handleChange}
+            style={styles.input}
+          />
 
-        <br />
-        <br />
+          <br />
+          <br />
 
-        <input
-          type="password"
-          name="password"
-          placeholder="Enter Password"
-          onChange={handleChange}
-          style={styles.input}
-        />
+          <input
+            type="password"
+            name="password"
+            placeholder="Enter Password"
+            onChange={handleChange}
+            style={styles.input}
+          />
 
-        <br />
-        <br />
+          <br />
+          <br />
 
-        <button type="submit" style={styles.button}>Signup</button>
-      </form>
+          <button type="submit" style={styles.button}>
+            Signup
+          </button>
+        </form>
       </div>
     </div>
   );
 }
 
 export default Signup;
+
